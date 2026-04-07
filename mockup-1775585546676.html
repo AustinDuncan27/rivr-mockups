@@ -1,0 +1,414 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maverick Barbershop - Classic Cuts & Fades | Denton, TX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="%23333"><rect width="1200" height="800" fill="%23222"/><circle cx="200" cy="200" r="50" fill="%23444"/><circle cx="800" cy="300" r="30" fill="%23444"/><circle cx="1000" cy="600" r="40" fill="%23444"/></svg>');
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            color: #1a1a1a;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: #d4af37;
+            margin: 1rem auto;
+        }
+
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .services {
+            background: #f8f8f8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #d4af37;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #d4af37;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            color: #1a1a1a;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Maverick</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Maverick Barbershop</h1>
+                <p>Classic Cuts & Fades • Old School Feel • Modern Style</p>
+                <p>Denton, Texas</p>
+                <a href="#contact" class="cta-button">Book Your Cut</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Maverick</h2>
+            <div class="about-content">
+                <p>For 8 years, Maverick Barbershop has been Denton's premier destination for classic cuts and modern style. We combine the timeless tradition of old school barbering with contemporary techniques to deliver the perfect cut every time.</p>
+                <p>Our shop embodies the authentic barbershop experience – where craftsmanship meets conversation, and every client leaves looking sharp and feeling confident. Whether you're looking for a quick trim or a complete transformation, we've got you covered.</p>
+                <p><strong>Walk-ins welcome • Appointments preferred</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Men's Cuts</h3>
+                    <p>Classic and contemporary men's haircuts tailored to your style. From business professional to edgy modern looks, we deliver precision cuts that enhance your best features.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Fades</h3>
+                    <p>Expert fade cuts including high, mid, and low fades. Perfectly blended transitions that showcase our technical skill and attention to detail.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Beard Trims</h3>
+                    <p>Professional beard trimming and shaping to complement your haircut. We'll help you maintain the perfect beard length and style for your face shape.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Straight Razor Shaves</h3>
+                    <p>Experience the luxury of a traditional straight razor shave. Hot towel treatment included for the ultimate in relaxation and precision grooming.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Kids Cuts</h3>
+                    <p>Patient, friendly service for our youngest clients. We make sure kids feel comfortable while getting a great cut that parents will love.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Classic Styles</h3>
+                    <p>Timeless cuts that never go out of style. Pompadours, side parts, and other vintage-inspired looks executed with modern precision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Visit Us Today</h3>
+                    <p><strong>Location:</strong><br>Denton, Texas</p>
+                    <p><strong>Experience:</strong><br>8 Years of Professional Barbering</p>
+                    <p><strong>Appointments:</strong><br>Preferred but walk-ins always welcome</p>
+                    <p><strong>Specialties:</strong><br>Men's Cuts • Fades • Beard Trims<br>Straight Razor Shaves • Kids Cuts</p>
+                </div>
+                <div class="contact-form">
+                    <h3 style="color: #d4af37; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px;">Book Appointment</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Preferred Service</label>
+                            <input type="text" id="service" name="service" placeholder="e.g., Men's Cut, Fade, Beard Trim">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Preferred date/time or any special requests"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Request Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Maverick Barbershop. All rights reserved. | Classic Cuts • Modern Style • Denton, TX</p>
+        </div>
+    </footer>
+</body>
+</html>

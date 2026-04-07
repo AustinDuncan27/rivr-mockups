@@ -1,0 +1,458 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanner - Professional Procrastinator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeOut 5s ease-in-out 3s forwards;
+        }
+
+        .loading-text {
+            color: #fff;
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f0f0f0" width="1200" height="800"/><text x="600" y="400" font-family="Arial" font-size="48" fill="%23ccc" text-anchor="middle">Image Loading...</text></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: slideUp 2s ease-out 6s both;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255,107,107,0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,107,107,0.6);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .response-time {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .response-stat {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .response-stat h3 {
+            font-size: 3rem;
+            color: #ff6b6b;
+            margin-bottom: 0.5rem;
+        }
+
+        .response-stat p {
+            color: #666;
+        }
+
+        .services {
+            background: white;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .contact {
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .disclaimer {
+            background: #333;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .typing-animation {
+            border-right: 2px solid #ff6b6b;
+            animation: typing 3s steps(40) 1s both, blink 1s infinite step-end 4s;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section {
+                padding: 4rem 1rem;
+            }
+        }
+
+        .slow-load {
+            animation: slowFadeIn 8s ease-in-out;
+        }
+
+        @keyframes slowFadeIn {
+            0%, 70% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay">
+        <div class="loading-text">Still waiting for Tanner to respond...</div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">Tanner</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content slow-load">
+            <h1>Hi, I'm Tanner</h1>
+            <p class="typing-animation">I'll get back to you... eventually</p>
+            <a href="#about" class="cta-button">Learn More (If You Have Time)</a>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>Welcome to my world of selective responsiveness. I'm Tanner, a professional at taking my time and a connoisseur of the "I'll respond later" lifestyle.</p>
+                <p>You know that friend who takes 3-5 business days to respond to a simple "hey"? That's me. Austin can confirm.</p>
+                <p>My approach to communication is like fine wine - it takes time, and the longer you wait, the more you appreciate it when it finally happens.</p>
+            </div>
+            <div class="response-time">
+                <div class="response-stat">
+                    <h3>4.7</h3>
+                    <p>Days Average Response Time</p>
+                </div>
+                <div class="response-stat">
+                    <h3>147</h3>
+                    <p>Austin's Unanswered Messages</p>
+                </div>
+                <div class="response-stat">
+                    <h3>∞</h3>
+                    <p>Patience Required</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section services">
+        <h2>My Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Professional Ghosting</h3>
+                <p>Mastering the art of being seen but not heard. Read receipts? What read receipts?</p>
+            </div>
+            <div class="service-card">
+                <h3>Delayed Responses</h3>
+                <p>Why respond in minutes when you can take days? Building anticipation is my specialty.</p>
+            </div>
+            <div class="service-card">
+                <h3>Selective Availability</h3>
+                <p>Available when you least expect it, unavailable when you need me most. It's an art form.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <h2>Get In Touch</h2>
+        <p>Feel free to reach out! I'll definitely see your message and probably think about responding.</p>
+        
+        <div class="contact-info">
+            <div class="contact-card">
+                <h3>Text Messages</h3>
+                <p>Response Rate: 23%</p>
+                <p>Average Wait Time: 4-7 days</p>
+                <p>"Hey" messages may take longer</p>
+            </div>
+            <div class="contact-card">
+                <h3>Phone Calls</h3>
+                <p>Likelihood of Answering: 8%</p>
+                <p>Voicemail Response: 12%</p>
+                <p>Best time: Never</p>
+            </div>
+            <div class="contact-card">
+                <h3>Email</h3>
+                <p>Check Frequency: Bi-weekly</p>
+                <p>Response Rate: 45%</p>
+                <p>May go to spam (mental spam)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="disclaimer">
+        <p>*Austin, if you're reading this, I saw your texts. I'll respond when the stars align and I remember where I put my phone. Thanks for your patience (you don't have a choice).*</p>
+        <p>Built with love and procrastination | Sent from my iPhone (probably)</p>
+    </section>
+
+    <script>
+        // Simulate slow loading like Tanner's responses
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.querySelector('.loading-overlay').style.display = 'none';
+            }, 6000);
+        });
+
+        // Add some interactive delay effects
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = this.getAttribute('href');
+                
+                setTimeout(() => {
+                    if (target.startsWith('#')) {
+                        document.querySelector(target).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }, Math.random() * 2000 + 500); // Random delay like Tanner
+            });
+        });
+    </script>
+</body>
+</html>

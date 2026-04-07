@@ -1,0 +1,419 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAITY - Kristal Kandles & More</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffc0cb, #ffb6c1, #ffa0b1);
+            color: #2c2c2c;
+            overflow-x: hidden;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 192, 203, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 3px solid #ff69b4;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #8b008b;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            letter-spacing: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: #8b008b;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu li a:hover {
+            transform: scale(1.1);
+            color: #ff1493;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(45deg, #ffc0cb, #ffb6c1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: 'K';
+            position: absolute;
+            font-size: 30rem;
+            color: rgba(139, 0, 139, 0.1);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 6rem;
+            color: #8b008b;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            letter-spacing: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 2.5rem;
+            color: #ff1493;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            font-size: 1.5rem;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.5);
+        }
+
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 4rem;
+            color: #8b008b;
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: 5px;
+        }
+
+        .about-content {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .about-content::before {
+            content: 'K';
+            position: absolute;
+            font-size: 15rem;
+            color: rgba(255, 105, 180, 0.1);
+            top: -50px;
+            right: -50px;
+            z-index: 1;
+        }
+
+        .about-text {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #2c2c2c;
+            position: relative;
+            z-index: 2;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: 'K';
+            position: absolute;
+            font-size: 8rem;
+            color: rgba(255, 105, 180, 0.1);
+            top: -20px;
+            right: -20px;
+            z-index: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 45px rgba(255, 105, 180, 0.3);
+        }
+
+        .product-title {
+            font-size: 2rem;
+            color: #8b008b;
+            margin-bottom: 15px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .product-description {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 20px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            color: #ff1493;
+            font-weight: bold;
+            z-index: 2;
+            position: relative;
+        }
+
+        .qa-container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+            padding: 40px;
+            margin-top: 50px;
+        }
+
+        .qa-item {
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ffb6c1;
+            padding-bottom: 20px;
+        }
+
+        .question {
+            font-size: 1.5rem;
+            color: #8b008b;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .answer {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.3rem;
+            color: #8b008b;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 3px solid #ffb6c1;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff69b4;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+        }
+
+        .floating-k {
+            position: absolute;
+            font-size: 4rem;
+            color: rgba(255, 105, 180, 0.3);
+            animation: float 6s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating-k:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-k:nth-child(2) { top: 60%; right: 15%; animation-delay: 2s; }
+        .floating-k:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
+
+        footer {
+            background: linear-gradient(45deg, #8b008b, #ff1493);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+                letter-spacing: 5px;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+                letter-spacing: 3px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-k">K</div>
+    <div class="floating-k">K</div>
+    <div class="floating-k">K</div>
+
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">KAITY</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">KOME</a></li>
+                    <li><a href="#about">ABOUT KAITY</a></li>
+                    <li><a href="#shop">KANDLE SHOP</a></li>
+                    <li><a href="#qa">Q&A</a></li>
+                    <li><a href="#contact">KONTAKT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">KAITY</h1>
+            <p class="hero-subtitle">Kristal Kandles & Kaity Kreations</p>
+            <button class="cta-button">Shop Kaity's Kollection</button>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">ABOUT KAITY</h2>
+        <div class="about-content">
+            <p class="about-text">
+                Welcome to Kaity's magical world! I'm Kaity, and I'm passionate about creating beautiful kandles infused with kristals that bring positive energy into your life. Each kandle is krafted with love and intention, featuring the letter K prominently in every design. My kristal kandles are more than just lighting - they're a spiritual journey, a moment of peace, and a touch of luxury all wrapped into one beautiful kreation.
+            </p>
+        </div>
+    </section>
+
+    <section id="shop" class="section">
+        <h2 class="section-title">KANDLE SHOP</h2>
+        <div class="shop-grid">
+            <div class="product-card">
+                <h3 class="product-title">Kaity's Kwartz Kandle</h3>
+                <p class="product-description">Beautiful soy kandle with embedded kwartz kristals and a prominent golden K design</p>
+                <p class="product-price">$25.99</p>
+            </div>
+            <div class="product-card">
+                <h3 class="product-title">Kristal K Kollektion</h3>
+                <p class="product-description">Set of 3 kandles with amethyst, rose kwartz, and klear kwartz kristals</p>
+                <p class="product-price">$65.99</p>
+            </div>
+            <div class="product-card">
+                <h3 class="product-title">Kaity's Kalming Kandle</h3>
+                <p class="product-description">Lavender-scented kandle with kalming kristals and a large decorative K</p>
+                <p class="product-price">$29.99</p>
+            </div>
+            <div class="product-card">
+                <h3 class="product-title">Luxury K Kristal Set</h3>
+                <p class="product-description">Premium kandle with rare kristals and hand-painted K motifs</p>
+                <p class="product-price">$89.99</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="qa" class="section">
+        <h2 class="section-title">KAITY'S Q&A</h2>
+        <div class="qa-container">
+            <div class="qa-item">
+                <h3 class="question">Q: What makes Kaity's kandles special?</h3>
+                <p class="answer">A: Each kandle is krafted with genuine kristals and features Kaity's signature K design. They're made with natural soy wax and infused with positive intentions!</p>
+            </div>
+            <div class="qa-item">
+                <h3 class="question">Q: How long do the kandles burn?</h3>
+                <p class="answer">A: Kaity's kandles burn for 40-60 hours depending on size, giving you long-lasting fragrance and kristal energy.</p>
+            </div>
+            <div class="qa-item">
+                <h3 class="question">Q: Can I keep the kristals after the kandle burns down?</h3>
+                <p class="answer">A: Absolutely! The kristals are embedded safely and can be retrieved and kept as beautiful keepsakes from Kaity's kollection.</p>
+            </div>
+            <div class="qa-item">
+                <h3 class="question">Q: Do you offer kustom orders?</h3>
+                <p class="answer">A: Yes! Kaity loves kreating kustom pieces. Contact me to discuss your special requests and personalized K designs.</p>
+            </div>

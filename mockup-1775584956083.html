@@ -1,0 +1,400 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe's BBQ - Best Brisket in Dallas, TX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c1810;
+            background-color: #faf8f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #8b4513, #a0522d);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .nav-links a:hover {
+            color: #ffcc80;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.8), rgba(160, 82, 45, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect width="1200" height="600" fill="%23654321"/><circle cx="300" cy="150" r="50" fill="%23b8860b" opacity="0.6"/><circle cx="900" cy="450" r="70" fill="%23daa520" opacity="0.4"/><rect x="100" y="400" width="200" height="100" rx="10" fill="%238b4513" opacity="0.7"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        .cta-button {
+            background: #ff6b35;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+        
+        .cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #8b4513;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #ff6b35;
+            display: block;
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-features {
+            list-style: none;
+        }
+        
+        .about-features li {
+            padding: 10px 0;
+            border-left: 4px solid #ff6b35;
+            padding-left: 20px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .menu-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-left: 5px solid #ff6b35;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .menu-item h3 {
+            color: #8b4513;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .price {
+            float: right;
+            color: #ff6b35;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .services {
+            background: linear-gradient(135deg, #fff8e1, #ffffff);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact {
+            background: #8b4513;
+            color: white;
+        }
+        
+        .contact .section-title {
+            color: white;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            font-size: 1.1rem;
+        }
+        
+        .contact-info div {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.9);
+        }
+        
+        .contact-form button {
+            background: #ff6b35;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .contact-form button:hover {
+            background: #e55a2b;
+        }
+        
+        footer {
+            background: #2c1810;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .menu-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Joe's BBQ</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to Joe's BBQ</h1>
+                <p>Dallas's Premier BBQ Destination - Famous for Our Tender Brisket & Lightning-Fast Service</p>
+                <a href="#menu" class="cta-button">View Our Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Joe's BBQ</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Located in the heart of Dallas, Texas, Joe's BBQ has been serving up authentic, mouth-watering barbecue since day one. Our reputation is built on two pillars: the most tender, flavorful brisket in the city and service so fast you'll be amazed.</p>
+                    <p>We take pride in our time-honored smoking techniques, using only the finest cuts of meat and our secret blend of spices. Every bite tells a story of Texas tradition and culinary excellence.</p>
+                </div>
+                <ul class="about-features">
+                    <li><strong>🔥 Award-Winning Brisket</strong> - Slow-smoked to perfection</li>
+                    <li><strong>⚡ Lightning-Fast Service</strong> - Quick without compromising quality</li>
+                    <li><strong>🌟 Family-Owned</strong> - Authentic Texas BBQ tradition</li>
+                    <li><strong>📍 Prime Dallas Location</strong> - Easy to find, hard to forget</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Famous Menu</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>Signature Brisket <span class="price">$16.99</span></h3>
+                    <p>Our world-famous brisket, slow-smoked for 14 hours with our secret rub. Tender, juicy, and packed with flavor. Served with your choice of two sides.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Pulled Pork Platter <span class="price">$14.99</span></h3>
+                    <p>Hand-pulled pork shoulder, smoked to perfection and topped with our signature BBQ sauce. Includes cornbread and two sides.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>BBQ Ribs (Half Rack) <span class="price">$18.99</span></h3>
+                    <p>Fall-off-the-bone baby back ribs with our house dry rub and tangy BBQ glaze. Served with coleslaw and baked beans.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Smoked Chicken <span class="price">$13.99</span></h3>
+                    <p>Half chicken rubbed with our special spice blend and smoked until the skin is crispy and the meat is tender.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>BBQ Combo Platter <span class="price">$22.99</span></h3>
+                    <p>Can't decide? Get a taste of everything! Brisket, pulled pork, ribs, and chicken with three sides.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Loaded BBQ Nachos <span class="price">$12.99</span></h3>
+                    <p>House-made chips loaded with your choice of smoked meat, cheese, jalapeños, and all the fixings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3>Fast Takeout</h3>
+                    <p>Order ahead for lightning-fast pickup. Your BBQ will be ready when you are, hot and fresh.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎉</div>
+                    <h3>Catering Services</h3>
+                    <p>Make your event unforgettable with Joe's BBQ catering. Perfect for parties, corporate events, and gatherings.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🍽️</div>
+                    <h3>Dine-In Experience</h3>
+                    <p>Enjoy the full Joe's BBQ experience in our welcoming restaurant with authentic Texas atmosphere.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Online Ordering</h3>
+                    <p>Order online for maximum convenience. Skip the line and get your BBQ fix faster than ever.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class

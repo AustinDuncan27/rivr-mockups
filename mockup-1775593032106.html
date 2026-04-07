@@ -1,0 +1,418 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom Floral Co - Custom Floral Arrangements & Event Styling | Frisco, TX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #5a5a5a;
+            background-color: #fefefe;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: rgba(255, 245, 245, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(222, 184, 184, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #c49797;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #8a7575;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #c49797;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(248, 237, 237, 0.8), rgba(244, 230, 230, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f8eded" width="1200" height="800"/><path fill="%23f0d9d9" d="M0 400c200-50 400 50 600-25s400 75 600 25v400H0z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: #a08080;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: #8a7575;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #d4a5a5, #c49797);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(196, 151, 151, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(196, 151, 151, 0.4);
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #a08080;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about {
+            background-color: #faf8f8;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .feature {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(160, 128, 128, 0.1);
+            border-left: 4px solid #d4a5a5;
+        }
+
+        .feature h3 {
+            color: #c49797;
+            margin-bottom: 0.5rem;
+        }
+
+        .services {
+            background: linear-gradient(135deg, #fdfcfc, #f8f5f5);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(160, 128, 128, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(212, 165, 165, 0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(160, 128, 128, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f0d9d9, #e8c8c8);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            color: #a08080;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, rgba(248, 237, 237, 0.6), rgba(244, 230, 230, 0.6));
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(160, 128, 128, 0.15);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #8a7575;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #f0d9d9;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d4a5a5;
+        }
+
+        .contact-info {
+            padding: 2rem 0;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            border-left: 4px solid #c49797;
+        }
+
+        .contact-item h3 {
+            color: #a08080;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: #8a7575;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Bloom Floral Co</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Bloom Floral Co</h1>
+            <p>Creating lush, romantic, and modern floral arrangements for your most precious moments in Frisco, Texas</p>
+            <a href="#contact" class="cta-button">Start Your Vision</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>For the past four years, Bloom Floral Co has been bringing beauty and elegance to Frisco, Texas through our custom floral arrangements and event styling. We believe every bloom tells a story, and we're passionate about creating arrangements that capture the essence of your special moments.</p>
+                    <p>Our signature style blends lush, romantic elements with modern sophistication, creating timeless pieces that speak to the heart. We're committed to sourcing locally whenever possible, supporting our community while ensuring the freshest, most beautiful blooms for our clients.</p>
+                </div>
+                <div class="about-features">
+                    <div class="feature">
+                        <h3>4 Years of Excellence</h3>
+                        <p>Trusted by hundreds of clients throughout North Texas for our exceptional service and artistry.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Locally Sourced</h3>
+                        <p>We partner with local growers whenever possible to bring you the freshest seasonal blooms.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Signature Style</h3>
+                        <p>Our lush, romantic, and modern aesthetic creates unforgettable floral experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💒</div>
+                    <h3>Wedding Florals</h3>
+                    <p>From intimate ceremonies to grand celebrations, we create stunning bridal bouquets, centerpieces, and ceremony arrangements that reflect your love story.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Corporate Events</h3>
+                    <p>Elevate your business gatherings with sophisticated floral arrangements that leave lasting impressions on clients and colleagues.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎉</div>
+                    <h3>Birthday Celebrations</h3>
+                    <p>Make every birthday memorable with custom arrangements designed to celebrate the unique personality of your loved ones.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💐</div>
+                    <h3>Everyday Bouquets</h3>
+                    <p>Brighten any day with our beautiful everyday arrangements, perfect for gifts, home decor, or simply treating yourself.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Let's Create Something Beautiful</h2>
+            <div class="contact-content">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-type">Event Type</label>
+                        <input type="text" id="event-type" name="event-type" placeholder="Wedding, Birthday, Corporate, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell Us About Your Vision</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Describe your floral needs, event details, color preferences, etc."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Location</h3>
+                        <p>Serving Frisco, TX<br>and surrounding areas</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <p>(469) 555-BLOOM<br>(469) 555-2566</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p>hello@bloomfloralco.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday: 9AM - 6PM<br>Saturday: 9AM - 4PM<br>Sunday: By Appointment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy

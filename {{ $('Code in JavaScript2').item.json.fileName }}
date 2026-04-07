@@ -1,0 +1,410 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe's BBQ - Authentic Texas BBQ in Dallas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c1810;
+            background-color: #fdf8f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B4513, #A0522D);
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23654321" width="1200" height="600"/><circle fill="%23FF6B35" cx="200" cy="150" r="20"/><circle fill="%23FF6B35" cx="300" cy="200" r="15"/><circle fill="%23FF6B35" cx="500" cy="100" r="25"/><circle fill="%23FFD700" cx="800" cy="180" r="18"/><circle fill="%23FFD700" cx="1000" cy="120" r="22"/></svg>');
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FF6B35;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #8B4513;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .about {
+            background: #fff;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .feature {
+            background: linear-gradient(135deg, #FF6B35, #e55a2b);
+            color: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(255,107,53,0.3);
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .services {
+            background: linear-gradient(135deg, #fdf8f0, #f5e6d3);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #FF6B35;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item h3 {
+            color: #8B4513;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .menu-item .price {
+            font-size: 1.5rem;
+            color: #FF6B35;
+            font-weight: bold;
+            float: right;
+        }
+
+        .menu-item p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #8B4513, #A0522D);
+            color: #fff;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #FFD700;
+        }
+
+        .contact-detail {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-detail h4 {
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+
+        .map-placeholder {
+            background: rgba(255,255,255,0.1);
+            height: 300px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            border: 2px dashed rgba(255,255,255,0.3);
+        }
+
+        .hours-table {
+            width: 100%;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .hours-table th,
+        .hours-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hours-table th {
+            background: rgba(255,255,255,0.2);
+            color: #FFD700;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Joe's BBQ</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Joe's BBQ</h1>
+            <p>Authentic Texas BBQ • World-Famous Brisket • Lightning Fast Service</p>
+            <a href="#menu" class="cta-button">View Our Menu</a>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="container">
+            <h2>About Joe's BBQ</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to Joe's BBQ, Dallas's premier destination for authentic Texas barbecue! For over 20 years, we've been smoking the finest meats low and slow, creating that perfect bark and tender inside that BBQ dreams are made of.</p>
+                    
+                    <p>Our legendary brisket has won hearts across Dallas, and our lightning-fast service means you get restaurant-quality BBQ without the wait. Whether you're grabbing lunch between meetings or feeding the whole family, Joe's BBQ delivers the authentic Texas experience every time.</p>
+                </div>
+                <div class="about-features">
+                    <div class="feature">
+                        <h3>🔥 Smoked Daily</h3>
+                        <p>Fresh meats smoked on-site every morning using traditional Texas methods</p>
+                    </div>
+                    <div class="feature">
+                        <h3>⚡ Fast Service</h3>
+                        <p>Get your BBQ fix quick with our efficient counter service</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🏆 Award-Winning</h3>
+                        <p>Dallas's #1 rated brisket by local food critics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="section services">
+        <div class="container">
+            <h2>Our Menu</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>Signature Brisket <span class="price">$16.99</span></h3>
+                    <p>Our world-famous beef brisket, smoked for 14 hours with our secret dry rub. Sliced thick and served with our house BBQ sauce.</p>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Pulled Pork Sandwich <span class="price">$12.99</span></h3>
+                    <p>Tender pulled pork shoulder with tangy coleslaw on a brioche bun. Served with your choice of side.</p>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>BBQ Ribs (Half Rack) <span class="price">$18.99</span></h3>
+                    <p>Fall-off-the-bone pork ribs with your choice of dry rub or sauce. Served with two classic sides.</p>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Smoked Sausage <span class="price">$11.99</span></h3>
+                    <p>House-made beef sausage with the perfect snap. Served hot with mustard and pickles.</p>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>The Pitmaster Platter <span class="price">$24.99</span></h3>
+                    <p>Can't decide? Get it all! Brisket, ribs, sausage, and pulled pork with three sides and cornbread.</p>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>BBQ Loaded Baked Potato <span class="price">$13.99</span></h3>
+                    <p>Giant baked potato loaded with chopped brisket, cheese, sour cream, chives, and our signature sauce.</p>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Classic Sides</h3>
+                    <p>Mac & Cheese • Coleslaw • Baked Beans • Cornbread • Potato Salad • Green Beans</p>
+                    <span class="price">$4.99 each</span>
+                </div>
+                
+                <div class="menu-item">
+                    <h3>Family Pack (Feeds 4-6) <span class="price">$69.99</span></h3>
+                    <p>2 lbs mixed meats, 4 large sides, cornbread, and a full bottle of our house sauce. Perfect for family dinner!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2>Visit Joe's BBQ</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Location & Contact</h3>
+                    
+                    <div class="contact-detail">
+                        <h4>📍 Address</h4>
+                        <p>2847 Main Street<br>Dallas, TX 75226</p>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <h4>📞 Phone</h4>
+                        <p>(214) 555-JOES<br>(214) 555-5637</p>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <h4>🕒 Hours</h4>
+                        <table class="hours-table">
+                            <tr>
+                                <th>Day</th>
+                                <th>Hours</th>
+                            </tr>
+                            <tr>
+                                <td>Monday - Thursday</td>
+                                <td>11:00 AM - 9:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Friday - Saturday</td>
+                                <td>11:00 AM - 

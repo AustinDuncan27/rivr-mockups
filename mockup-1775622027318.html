@@ -1,0 +1,442 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zodiac Cakes - Mystical Bakery in Salem, Massachusetts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #e6ddd4;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #8b7355;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #e6ddd4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        radial-gradient(circle at 30% 20%, #2c3e50 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, #34495e 0%, transparent 50%),
+                        #1a1a2e;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '✦ ✧ ★ ☾ ✦ ✧ ★ ☾ ✦ ✧ ★ ☾';
+            position: absolute;
+            top: 20%;
+            left: -100%;
+            right: -100%;
+            text-align: center;
+            font-size: 2rem;
+            color: rgba(212, 175, 55, 0.3);
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #d4af37;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            font-weight: 300;
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #c0a062;
+            max-width: 600px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #8b7355, #d4af37);
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #d4af37;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #8b7355, #d4af37);
+        }
+        
+        .about {
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #c0a062;
+        }
+        
+        .about-features {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .feature {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #d4af37;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateX(10px);
+        }
+        
+        .feature h3 {
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .services {
+            background: rgba(139, 115, 85, 0.1);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .service-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+        
+        .service-card h3 {
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .service-card p {
+            color: #c0a062;
+            line-height: 1.6;
+        }
+        
+        .contact {
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info h3 {
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .contact-info p {
+            color: #c0a062;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 2px solid #8b7355;
+            background: rgba(0, 0, 0, 0.3);
+            color: #e6ddd4;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+        
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #8b7355;
+        }
+        
+        .submit-btn {
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #8b7355, #d4af37);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.3);
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 2px solid #8b7355;
+        }
+        
+        footer p {
+            color: #8b7355;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Zodiac Cakes</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Zodiac Cakes</h1>
+            <p>Where celestial magic meets culinary artistry in the mystical heart of Salem</p>
+            <a href="#contact" class="cta-button">Order Your Destiny</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Our Mystical Story</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>In the enchanted streets of Salem, Massachusetts, where magic whispers through every cobblestone, Zodiac Cakes was born from a passion for the celestial and the culinary. Our bakery brings together the ancient art of astrology with the timeless craft of baking.</p>
+                    <p>Every pastry we create is a work of art inspired by the zodiac signs, star charts, and the mystical energy that Salem is renowned for. We embrace the witchy vibe of our historic city, crafting treats that speak to the souls of those who seek something beyond the ordinary.</p>
+                </div>
+                <div class="about-features">
+                    <div class="feature">
+                        <h3>☽ Astrologically Inspired</h3>
+                        <p>Each creation reflects the unique characteristics and symbolism of the zodiac signs</p>
+                    </div>
+                    <div class="feature">
+                        <h3>✦ Salem's Magic</h3>
+                        <p>Infused with the mystical energy and witchy heritage of our historic city</p>
+                    </div>
+                    <div class="feature">
+                        <h3>☾ Artisanal Craft</h3>
+                        <p>Handcrafted with premium ingredients and attention to mystical detail</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Celestial Creations</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">♈</div>
+                    <h3>Zodiac Sign Cakes</h3>
+                    <p>Custom cakes designed to embody the essence of each astrological sign, from fiery Aries to mystical Pisces, complete with constellation decorations and symbolic elements.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">☾</div>
+                    <h3>Moon Phase Pastries</h3>
+                    <p>Delicate pastries that mirror the lunar cycle, from crescent croissants to full moon tarts, each baked to align with celestial timing.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✦</div>
+                    <h3>Star Chart Cookies</h3>
+                    <p>Intricate sugar cookies decorated with edible gold dust to recreate personal birth charts and constellation maps with mystical precision.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔮</div>
+                    <h3>Witchy Treats
